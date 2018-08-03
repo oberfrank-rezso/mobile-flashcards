@@ -67,7 +67,7 @@ class QuizScreen extends React.Component {
   }
 
   handleRetake = () => {
-    this.props.navigation.setParams({ current: 0 });
+    this.props.navigation.setParams({ current: 1 });
 
     this.setState({
       currentIndex: 0,

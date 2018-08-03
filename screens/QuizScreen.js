@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-import { setLocalNotification } from '../helpers/notifications';
+import { clearLocalNotification, setLocalNotification } from '../helpers/notifications';
 
 class QuizScreen extends React.Component {
   static navigationOptions = ({ navigation: { getParam } }) => ({
@@ -22,7 +22,8 @@ class QuizScreen extends React.Component {
 
   handleLast = () => {
     this.setState({ finished: true });
-    setLocalNotification();
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   handleCorrect = () => {

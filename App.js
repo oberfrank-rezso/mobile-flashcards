@@ -1,23 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage } from 'react-native'
+//AsyncStorage.clear();
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import { createStackNavigator } from 'react-navigation';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+import HomeScreen from './screens/HomeScreen';
+import DeckScreen from './screens/DeckScreen';
+import NewDeckScreen from './screens/NewDeckScreen';
+import NewCardScreen from './screens/NewCardScreen';
+import QuizScreen from './screens/QuizScreen';
+
+const App = createStackNavigator({
+  Home: HomeScreen,
+  NewDeck: NewDeckScreen,
+  NewCard: NewCardScreen,
+  Deck: DeckScreen,
+  Quiz: QuizScreen,
+}, {
+  initialRouteName: 'Home',
 });
+
+export default App;

@@ -1,5 +1,16 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0",
+    "orientation": "portrait",
+    "name": "Mobile Flashcards",
+    "description": "The best flash card app ever.",
+    "slug": "mobileFlashCards",
+    "version": "1.0",
+    "ios": {
+      "bundleIdentifier": "org.mobileflashcards.exp"
+    },
+    "android": {
+      "package": "org.mobileflashcards.exp"
+    }
   }
 }

@@ -14,8 +14,9 @@ class NewDeckScreen extends React.Component {
   }
 
   handleSubmit = () => {
-    const promise = saveDeckTitle(this.state.title);
-    promise.then(() => this.props.navigation.goBack());
+    const { title } = this.state;
+    saveDeckTitle(title)
+      .then(() => this.props.navigation.replace('Deck', { title }));
   }
 
   handleChange = value => {

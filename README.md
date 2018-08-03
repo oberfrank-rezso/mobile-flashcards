@@ -1,6 +1,6 @@
-# Readable: A Content and Comment App
+# Mobile Flashcards
 
-A React Native iOS application built with `expo` that allows you create study decks and add questions to them.
+A React Native iOS application built with `expo` that allows you to create study decks and add questions to them.
 
 Readable was created for the final assessment project for the **Udacity's React Native course**.
 
@@ -20,8 +20,8 @@ $ yarn start
 ## Notifications
 
 * The notification system is fully in the background
-* It does not send notifications to the user on the day of first running the application (that would be really pushy :D)
-* Every time a quiz runs it clears the notification for that day and sets it up for the upcoming days at 20:00.
+* It does not send notifications to the user on the day of first running the application even with no quiz completed [that would be really pushy]
+* Every time a quiz runs it clears the notification for that day and sets it up for the upcoming days at 20:00
 
 ## Acknowledgments
 

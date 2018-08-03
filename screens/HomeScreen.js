@@ -1,14 +1,12 @@
 import React from 'react';
-import { Platform, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, FlatList } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
-import { Permissions } from 'expo';
 
 import FAB from 'react-native-fab';
 import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-buttons';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 import Deck from '../components/Deck';
-
 import { getDecks } from '../helpers/api';
 import { setLocalNotification } from '../helpers/notifications';
 
@@ -50,16 +48,6 @@ class HomeScreen extends React.Component {
           keyExtractor={item => `deck-${item}`}
           contentContainerStyle={{ padding: 16 }}
         />
-        {Platform.OS === 'android' && (
-          <FAB
-            buttonColor="white"
-            iconTextColor="gray"
-            onClickAction={() => this.props.navigation.navigate('NewDeck')}
-            visible={true}
-            iconTextComponent={<MaterialIcons name="add"/>}
-          />
-        )}
-        <Text></Text>
       </React.Fragment>
     );
   }

@@ -1,20 +1,13 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Platform } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 const Deck = ({ title, size, onPress = null }) => (
-  onPress === null ? (
+  <TouchableOpacity onPress={onPress} disabled={onPress === null}>
     <View style={styles.deck}>
       <Text style={styles.deckTitle}>{title}</Text>
       <Text style={styles.deckSize}>{size} cards</Text>
     </View>
-  ) : (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.deck}>
-        <Text style={styles.deckTitle}>{title}</Text>
-        <Text style={styles.deckSize}>{size} cards</Text>
-      </View>
-    </TouchableOpacity>
-  )
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
@@ -25,7 +18,7 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 32,
     backgroundColor: 'white',
-    borderRadius: Platform.OS === 'ios' ? 4 : 0,
+    borderRadius: 4,
     marginBottom: 16,
   },
   deckTitle: {

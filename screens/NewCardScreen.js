@@ -8,7 +8,11 @@ class NewCardScreen extends React.Component {
     title: 'New card',
   };
 
-  state = { q: '', a: '', disabled: true };
+  state = {
+    q: '',
+    a: '',
+    disabled: true,
+  };
 
   handleSubmit = () => {
     const { q, a, disabled } = this.state;

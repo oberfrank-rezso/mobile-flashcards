@@ -1,6 +1,3 @@
-import { AsyncStorage } from 'react-native'
-//AsyncStorage.clear();
-
 import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './screens/HomeScreen';

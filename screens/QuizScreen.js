@@ -4,10 +4,21 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { clearLocalNotification, setLocalNotification } from '../helpers/notifications';
 
 class QuizScreen extends React.Component {
-  static navigationOptions = ({ navigation: { getParam } }) => ({
-    headerTitle: getParam('title'),
-    headerRight: <Text style={styles.headerRightText}>{`${getParam('current', 0)}/${getParam('cards').length}`}</Text>,
-  });
+  static navigationOptions = ({ navigation: { getParam } }) => {
+    const headerTitle = getParam('title');
+    const current = getParam('current', 1);
+    const numberOfCards = getParam('cards').length;
+
+    const showRemaining = current <= numberOfCards;
+    return {
+      headerTitle,
+      headerRight: showRemaining ? (
+        <Text style={styles.headerRightText}>
+          {`${current}/${numberOfCards}`}
+        </Text>
+      ) : null,
+    };
+  };
 
   state = {
     currentIndex: 0,
@@ -27,7 +38,7 @@ class QuizScreen extends React.Component {
   }
 
   handleCorrect = () => {
-    this.props.navigation.setParams({ current: this.state.currentIndex + 1 });
+    this.props.navigation.setParams({ current: this.state.currentIndex + 2 });
     const isLast = this.state.currentIndex === this.props.navigation.getParam('cards').length - 1;
 
     this.setState(state => ({
@@ -42,7 +53,7 @@ class QuizScreen extends React.Component {
   }
 
   handleIncorrect = () => {
-    this.props.navigation.setParams({ current: this.state.currentIndex + 1 });
+    this.props.navigation.setParams({ current: this.state.currentIndex + 2 });
     const isLast = this.state.currentIndex === this.props.navigation.getParam('cards').length - 1;
 
     this.setState(state => ({
